@@ -19,20 +19,22 @@ type VirtualServer struct {
 	ClientsConnections        int     `sq:"virtualserver_client_connections"`
 	QueryClientsConnections   int     `sq:"virtualserver_queryclientsonline"`
 
+	ControlPacketLoss   float64 `sq:"virtualserver_total_packetloss_control"`
+	SpeechPacketLoss    float64 `sq:"virtualserver_total_packetloss_speech"`
+	KeepAlivePacketLoss float64 `sq:"virtualserver_total_packetloss_keepalive"`
+	PacketLoss          float64 `sq:"virtualserver_total_packetloss_total"`
+	Ping                float64 `sq:"virtualserver_total_ping"`
+
 	FileTransferBytesSentTotal     int `sq:"connection_filetransfer_bytes_sent_total"`
 	FileTransferBytesReceivedTotal int `sq:"connection_filetransfer_bytes_received_total"`
-
-	ControlBytesSendTotal     int `sq:"connection_bytes_sent_control"`
-	ControlBytesReceivedTotal int `sq:"connection_bytes_received_control"`
-
-	SpeechBytesSendTotal     int `sq:"connection_bytes_sent_speech"`
-	SpeechBytesReceivedTotal int `sq:"connection_bytes_received_speech"`
-
-	KeepAliveBytesSendTotal     int `sq:"connection_bytes_sent_keepalive"`
-	KeepAliveBytesReceivedTotal int `sq:"connection_bytes_received_keepalive"`
-
-	BytesSendTotal     int `sq:"connection_bytes_sent_total"`
-	BytesReceivedTotal int `sq:"connection_bytes_received_total"`
+	ControlBytesSentTotal          int `sq:"connection_bytes_sent_control"`
+	ControlBytesReceivedTotal      int `sq:"connection_bytes_received_control"`
+	SpeechBytesSentTotal           int `sq:"connection_bytes_sent_speech"`
+	SpeechBytesReceivedTotal       int `sq:"connection_bytes_received_speech"`
+	KeepAliveBytesSentTotal        int `sq:"connection_bytes_sent_keepalive"`
+	KeepAliveBytesReceivedTotal    int `sq:"connection_bytes_received_keepalive"`
+	BytesSentTotal                 int `sq:"connection_bytes_sent_total"`
+	BytesReceivedTotal             int `sq:"connection_bytes_received_total"`
 }
 
 type VirtualServerView struct {
